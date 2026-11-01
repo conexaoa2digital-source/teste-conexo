@@ -1,0 +1,11 @@
+CONEXO · SITE
+
+Como subir (GitHub Pages ou Hostinger):
+- Envie TODO o conteúdo desta pasta (os arquivos .html e as pastas "v" e "img") para a raiz do site.
+- A página inicial é o index.html. As abas são: whatsapp.html, anab.html, apresentacoes.html e precos.html.
+- app.html é a demonstração do aplicativo que aparece dentro da página inicial.
+
+Para colocar o WhatsApp e o Instagram da Conexo:
+- Abra o index.html, procure por "const CONEXO" e preencha:
+  whatsapp: '5577999999999'  (só números, com DDI 55 e DDD)
+  instagram: 'conexo.app'    (sem @)
