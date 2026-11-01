@@ -375,7 +375,7 @@ p{margin:0}
 /* HERO com vídeo */
 .hero{background:#050D2A;color:#fff;isolation:isolate}
 .hero::before,.hero::after{display:none}
-.hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;background:url(v/fundo.webp) center/cover no-repeat,radial-gradient(900px 600px at 75% 30%,#1A49D6 0%,#0B1E5C 45%,#050D2A 80%)}
+.hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;background:url(fundo.webp) center/cover no-repeat,radial-gradient(900px 600px at 75% 30%,#1A49D6 0%,#0B1E5C 45%,#050D2A 80%)}
 .hero .hf{color:var(--ink)}
 .hero .stage::before{content:"";position:absolute;left:50%;top:50%;width:min(640px,135%);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(120,170,255,.95) 0%,rgba(70,130,255,.85) 38%,rgba(47,107,255,.45) 58%,transparent 72%);filter:blur(44px);z-index:0;pointer-events:none;animation:glow 6s ease-in-out infinite}
 .hero .stage::after{content:"";position:absolute;left:50%;top:55%;width:min(300px,70%);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(190,215,255,.55),transparent 65%);filter:blur(30px);z-index:0;pointer-events:none}
@@ -1344,7 +1344,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area
 <main id="topo">
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"><video id="heroV" muted loop playsinline autoplay preload="auto" poster="v/fundo.webp" src="v/fundo.mp4"></video></div>
+  <div class="hero-bg" aria-hidden="true"><video id="heroV" muted loop playsinline autoplay preload="auto" poster="fundo.webp" src="fundo.mp4"></video></div>
   <div class="wrap hero-g">
     <div>
       <h1 class="rv">Tirou foto,<br><em>tá lançado.</em></h1>
@@ -1365,7 +1365,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area
         <div class="ph-scr">
           <div class="ph-notch"></div>
           <div class="ph-cam">
-            <img src="img/nota.webp" alt="" width="700" height="923">
+            <img src="nota.webp" alt="" width="700" height="923">
             <i class="crn"></i><i class="ph-line"></i>
             <span class="ph-tip">Enquadre a nota</span>
             <span class="ph-shot"></span>
@@ -1396,7 +1396,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area
     <h2 class="h2 rv d1">Uma foto resolve o que<br>a gaveta nunca resolveu.</h2>
     <div class="film-frame rv d2">
       <div class="film" id="film">
-        <video id="filmV" playsinline preload="none" poster="v/geral.webp" aria-label="Filme de apresentação da Conexo"></video>
+        <video id="filmV" playsinline preload="none" poster="geral.webp" aria-label="Filme de apresentação da Conexo"></video>
         <button class="play" id="filmP" aria-label="Assistir ao filme"><span><svg><use href="#i-play"/></svg></span><b>Assista com som</b></button>
       </div>
     </div>
@@ -1626,7 +1626,7 @@ const CONEXO = {
 
   /* filme */
   const film = $('#film'), filmV = $('#filmV');
-  const FILM_SRC = 'v/geral.mp4';
+  const FILM_SRC = 'geral.mp4';
   $('#filmP').onclick = () => { filmV.src = FILM_SRC; filmV.controls = true; film.classList.add('on'); filmV.play().catch(() => {}); };
 
   /* hero: vídeo de fundo em loop */
@@ -1652,7 +1652,7 @@ const CONEXO = {
   ];
   let swI = 0, swDark = false, swBusy = false;
   const swStack = $('#swStack'), N = TELAS.length;
-  const swSrc = k => swDark ? `img/d/${k}.webp` : `img/${k}.webp`;
+  const swSrc = k => swDark ? `d-${k}.webp` : `${k}.webp`;
   function swRender() {
     swStack.innerHTML = [2, 1, 0].map(o => {
       const i = (swI + o) % N, [k, t] = TELAS[i];
@@ -1702,7 +1702,7 @@ const CONEXO = {
     swDark = b.dataset.th === 'escuro'; $('#thm').dataset.on = b.dataset.th;
     $$('#thm button').forEach(x => x.setAttribute('aria-pressed', x === b)); swRender();
   }));
-  TELAS.forEach(([k]) => { const a = new Image(); a.src = `img/${k}.webp`; });
+  TELAS.forEach(([k]) => { const a = new Image(); a.src = `${k}.webp`; });
   swRender();
 
   /* contato */
